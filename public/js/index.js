@@ -6,9 +6,9 @@ socket.on('connect', function() {
     text:'How you doing?'
   })
 });
-socket.on('disconnect', function()  {
-  console.log('Disconnected from server');
-});
 socket.on('newMessage',function(message) {
   console.log('New Message received', message);
+});
+socket.on('disconnect', function()  {
+  console.log('Disconnected from server');
 });
