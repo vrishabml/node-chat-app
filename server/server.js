@@ -27,7 +27,7 @@ io.on('connection',(socket) => {
     users.removeUser(socket.id);
     users.addUser(socket.id, params.Name, params.Room);
 
-    io.to(paramas.Room).emit('updateUserList', users.getUserList(params.Room));
+    io.to(params.Room).emit('updateUserList', users.getUserList(params.Room));
     socket.emit('newMessage', generateMessage('Admin','Welcome to the chat app'));
     socket.broadcast.to(params.Room).emit('newMessage', generateMessage('Admin',`${params.Name} has joined the room`));
     callback();
